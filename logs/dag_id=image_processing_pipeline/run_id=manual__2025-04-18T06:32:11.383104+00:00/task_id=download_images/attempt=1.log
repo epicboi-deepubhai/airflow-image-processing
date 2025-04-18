@@ -1,0 +1,22 @@
+[2025-04-18T06:47:19.701+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T06:47:19.718+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: image_processing_pipeline.download_images manual__2025-04-18T06:32:11.383104+00:00 [queued]>
+[2025-04-18T06:47:19.725+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: image_processing_pipeline.download_images manual__2025-04-18T06:32:11.383104+00:00 [queued]>
+[2025-04-18T06:47:19.725+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-18T06:47:19.738+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): download_images> on 2025-04-18 06:32:11.383104+00:00
+[2025-04-18T06:47:19.747+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'image_processing_pipeline', 'download_images', 'manual__2025-04-18T06:32:11.383104+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/image_processing_dag.py', '--cfg-path', '/tmp/tmp45nz6s1k']
+[2025-04-18T06:47:19.748+0000] {standard_task_runner.py:105} INFO - Job 53: Subtask download_images
+[2025-04-18T06:47:19.749+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=328) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T06:47:19.749+0000] {standard_task_runner.py:72} INFO - Started process 329 to run task
+[2025-04-18T06:47:19.778+0000] {task_command.py:467} INFO - Running <TaskInstance: image_processing_pipeline.download_images manual__2025-04-18T06:32:11.383104+00:00 [running]> on host 96ec7c07bc54
+[2025-04-18T06:47:19.844+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='image_processing_pipeline' AIRFLOW_CTX_TASK_ID='download_images' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T06:32:11.383104+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T06:32:11.383104+00:00'
+[2025-04-18T06:47:19.845+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T06:47:19.865+0000] {image_processing_dag.py:68} INFO - Found 1 files to process: ['Dario-Nessi_Sir-no-photos-please-copy.jpg']
+[2025-04-18T06:47:19.865+0000] {s3_operations.py:22} INFO - Downloading Dario-Nessi_Sir-no-photos-please-copy.jpg from original-images-*** to /tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg
+[2025-04-18T06:47:19.871+0000] {base.py:84} INFO - Retrieving connection 'aws_default'
+[2025-04-18T06:47:20.684+0000] {s3_operations.py:26} INFO - Successfully downloaded file to /tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg
+[2025-04-18T06:47:20.685+0000] {python.py:240} INFO - Done. Returned value was: [{'original_key': 'Dario-Nessi_Sir-no-photos-please-copy.jpg', 'local_path': '/tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg'}]
+[2025-04-18T06:47:20.699+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T06:47:20.700+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=image_processing_pipeline, task_id=download_images, run_id=manual__2025-04-18T06:32:11.383104+00:00, execution_date=20250418T063211, start_date=20250418T064719, end_date=20250418T064720
+[2025-04-18T06:47:20.725+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T06:47:20.747+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T06:47:20.748+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

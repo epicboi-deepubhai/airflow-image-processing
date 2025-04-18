@@ -1,0 +1,20 @@
+[2025-04-18T06:47:17.880+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T06:47:17.893+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: image_processing_pipeline.list_new_images manual__2025-04-18T06:32:11.383104+00:00 [queued]>
+[2025-04-18T06:47:17.899+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: image_processing_pipeline.list_new_images manual__2025-04-18T06:32:11.383104+00:00 [queued]>
+[2025-04-18T06:47:17.900+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-18T06:47:17.912+0000] {taskinstance.py:2890} INFO - Executing <Task(S3ListOperator): list_new_images> on 2025-04-18 06:32:11.383104+00:00
+[2025-04-18T06:47:17.919+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'image_processing_pipeline', 'list_new_images', 'manual__2025-04-18T06:32:11.383104+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/image_processing_dag.py', '--cfg-path', '/tmp/tmp89c_guqb']
+[2025-04-18T06:47:17.920+0000] {standard_task_runner.py:105} INFO - Job 51: Subtask list_new_images
+[2025-04-18T06:47:17.921+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=321) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T06:47:17.921+0000] {standard_task_runner.py:72} INFO - Started process 322 to run task
+[2025-04-18T06:47:17.948+0000] {task_command.py:467} INFO - Running <TaskInstance: image_processing_pipeline.list_new_images manual__2025-04-18T06:32:11.383104+00:00 [running]> on host 96ec7c07bc54
+[2025-04-18T06:47:18.002+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='image_processing_pipeline' AIRFLOW_CTX_TASK_ID='list_new_images' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T06:32:11.383104+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T06:32:11.383104+00:00'
+[2025-04-18T06:47:18.002+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T06:47:18.013+0000] {s3.py:837} INFO - Getting the list of files from bucket: original-images-*** in prefix:  (Delimiter /)
+[2025-04-18T06:47:18.020+0000] {base.py:84} INFO - Retrieving connection 'aws_default'
+[2025-04-18T06:47:18.021+0000] {connection_wrapper.py:325} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2025-04-18T06:47:18.573+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T06:47:18.573+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=image_processing_pipeline, task_id=list_new_images, run_id=manual__2025-04-18T06:32:11.383104+00:00, execution_date=20250418T063211, start_date=20250418T064717, end_date=20250418T064718
+[2025-04-18T06:47:18.656+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T06:47:18.678+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T06:47:18.680+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

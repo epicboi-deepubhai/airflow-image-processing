@@ -1,0 +1,107 @@
+[2025-04-18T06:30:01.263+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T06:30:01.279+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: image_processing_pipeline.check_for_new_images scheduled__2025-04-18T06:25:00+00:00 [queued]>
+[2025-04-18T06:30:01.286+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: image_processing_pipeline.check_for_new_images scheduled__2025-04-18T06:25:00+00:00 [queued]>
+[2025-04-18T06:30:01.286+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-18T06:30:01.297+0000] {taskinstance.py:2890} INFO - Executing <Task(S3KeySensor): check_for_new_images> on 2025-04-18 06:25:00+00:00
+[2025-04-18T06:30:01.305+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'image_processing_pipeline', 'check_for_new_images', 'scheduled__2025-04-18T06:25:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/image_processing_dag.py', '--cfg-path', '/tmp/tmpny8319tf']
+[2025-04-18T06:30:01.307+0000] {standard_task_runner.py:105} INFO - Job 21: Subtask check_for_new_images
+[2025-04-18T06:30:01.307+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=411) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T06:30:01.308+0000] {standard_task_runner.py:72} INFO - Started process 412 to run task
+[2025-04-18T06:30:01.341+0000] {task_command.py:467} INFO - Running <TaskInstance: image_processing_pipeline.check_for_new_images scheduled__2025-04-18T06:25:00+00:00 [running]> on host 96ec7c07bc54
+[2025-04-18T06:30:01.408+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='image_processing_pipeline' AIRFLOW_CTX_TASK_ID='check_for_new_images' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T06:25:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-18T06:25:00+00:00'
+[2025-04-18T06:30:01.409+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T06:30:01.422+0000] {baseoperator.py:423} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-04-18T06:30:01.423+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T06:30:01.434+0000] {base.py:84} INFO - Retrieving connection 'aws_default'
+[2025-04-18T06:30:01.435+0000] {connection_wrapper.py:325} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2025-04-18T06:30:01.946+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.png
+[2025-04-18T06:31:01.989+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T06:31:02.252+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.png
+[2025-04-18T06:32:02.293+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T06:33:02.515+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T06:33:02.739+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.png
+[2025-04-18T06:34:02.785+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T06:34:02.986+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.png
+[2025-04-18T06:35:03.027+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T06:35:03.333+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.png
+[2025-04-18T06:35:03.380+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/amazon/aws/sensors/s3.py", line 185, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sensors/base.py", line 326, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 301.95726264400037 seconds exceeds the specified timeout of 300.0.
+[2025-04-18T06:35:03.394+0000] {taskinstance.py:1226} INFO - Immediate failure requested. Marking task as FAILED. dag_id=image_processing_pipeline, task_id=check_for_new_images, run_id=scheduled__2025-04-18T06:25:00+00:00, execution_date=20250418T062500, start_date=20250418T063001, end_date=20250418T063503
+[2025-04-18T06:35:03.439+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T06:35:03.440+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 21 for task check_for_new_images (Sensor has timed out; run duration of 301.95726264400037 seconds exceeds the specified timeout of 300.0.; 412)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/amazon/aws/sensors/s3.py", line 185, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sensors/base.py", line 326, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 301.95726264400037 seconds exceeds the specified timeout of 300.0.
+[2025-04-18T06:35:03.490+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-18T06:35:03.520+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T06:35:03.524+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

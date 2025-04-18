@@ -1,0 +1,22 @@
+[2025-04-18T11:31:19.833+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T11:31:19.853+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: image_processing_pipeline.check_for_new_images scheduled__2025-04-17T00:00:00+00:00 [queued]>
+[2025-04-18T11:31:19.862+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: image_processing_pipeline.check_for_new_images scheduled__2025-04-17T00:00:00+00:00 [queued]>
+[2025-04-18T11:31:19.862+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-18T11:31:19.874+0000] {taskinstance.py:2890} INFO - Executing <Task(S3KeySensor): check_for_new_images> on 2025-04-17 00:00:00+00:00
+[2025-04-18T11:31:19.881+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'image_processing_pipeline', 'check_for_new_images', 'scheduled__2025-04-17T00:00:00+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/image_processing_dag.py', '--cfg-path', '/tmp/tmpw80p1ipo']
+[2025-04-18T11:31:19.882+0000] {standard_task_runner.py:105} INFO - Job 62: Subtask check_for_new_images
+[2025-04-18T11:31:19.883+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=195) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T11:31:19.883+0000] {standard_task_runner.py:72} INFO - Started process 198 to run task
+[2025-04-18T11:31:19.917+0000] {task_command.py:467} INFO - Running <TaskInstance: image_processing_pipeline.check_for_new_images scheduled__2025-04-17T00:00:00+00:00 [running]> on host 8a38d9806031
+[2025-04-18T11:31:19.983+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='image_processing_pipeline' AIRFLOW_CTX_TASK_ID='check_for_new_images' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T00:00:00+00:00'
+[2025-04-18T11:31:19.984+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T11:31:20.010+0000] {baseoperator.py:423} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-04-18T11:31:20.011+0000] {s3.py:114} INFO - Poking for key : s3://original-images-***/*.jpg
+[2025-04-18T11:31:20.019+0000] {base.py:84} INFO - Retrieving connection 'aws_default'
+[2025-04-18T11:31:20.020+0000] {connection_wrapper.py:325} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2025-04-18T11:31:20.552+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2025-04-18T11:31:20.576+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T11:31:20.576+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=image_processing_pipeline, task_id=check_for_new_images, run_id=scheduled__2025-04-17T00:00:00+00:00, execution_date=20250417T000000, start_date=20250418T113119, end_date=20250418T113120
+[2025-04-18T11:31:20.618+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T11:31:20.638+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T11:31:20.639+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

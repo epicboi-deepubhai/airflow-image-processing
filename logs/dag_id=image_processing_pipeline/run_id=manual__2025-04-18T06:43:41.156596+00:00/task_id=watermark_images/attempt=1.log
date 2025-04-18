@@ -1,0 +1,20 @@
+[2025-04-18T06:43:48.229+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T06:43:48.249+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: image_processing_pipeline.watermark_images manual__2025-04-18T06:43:41.156596+00:00 [queued]>
+[2025-04-18T06:43:48.259+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: image_processing_pipeline.watermark_images manual__2025-04-18T06:43:41.156596+00:00 [queued]>
+[2025-04-18T06:43:48.259+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-18T06:43:48.271+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): watermark_images> on 2025-04-18 06:43:41.156596+00:00
+[2025-04-18T06:43:48.280+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'image_processing_pipeline', 'watermark_images', 'manual__2025-04-18T06:43:41.156596+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/image_processing_dag.py', '--cfg-path', '/tmp/tmp7vlroqbd']
+[2025-04-18T06:43:48.283+0000] {standard_task_runner.py:105} INFO - Job 30: Subtask watermark_images
+[2025-04-18T06:43:48.286+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=211) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T06:43:48.286+0000] {standard_task_runner.py:72} INFO - Started process 212 to run task
+[2025-04-18T06:43:48.321+0000] {task_command.py:467} INFO - Running <TaskInstance: image_processing_pipeline.watermark_images manual__2025-04-18T06:43:41.156596+00:00 [running]> on host 96ec7c07bc54
+[2025-04-18T06:43:48.390+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='image_processing_pipeline' AIRFLOW_CTX_TASK_ID='watermark_images' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T06:43:41.156596+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T06:43:41.156596+00:00'
+[2025-04-18T06:43:48.391+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T06:43:48.415+0000] {image_processing.py:37} INFO - Adding watermark to image: /tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg
+[2025-04-18T06:43:48.729+0000] {image_processing.py:65} INFO - Added watermark successfully
+[2025-04-18T06:43:48.730+0000] {python.py:240} INFO - Done. Returned value was: [{'original_key': 'Dario-Nessi_Sir-no-photos-please-copy.jpg', 'local_path': '/tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg'}]
+[2025-04-18T06:43:48.753+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T06:43:48.753+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=image_processing_pipeline, task_id=watermark_images, run_id=manual__2025-04-18T06:43:41.156596+00:00, execution_date=20250418T064341, start_date=20250418T064348, end_date=20250418T064348
+[2025-04-18T06:43:48.821+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T06:43:48.864+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T06:43:48.866+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,22 @@
+[2025-04-18T06:47:13.510+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T06:47:13.525+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: image_processing_pipeline.upload_processed_images scheduled__2025-04-18T06:30:00+00:00 [queued]>
+[2025-04-18T06:47:13.533+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: image_processing_pipeline.upload_processed_images scheduled__2025-04-18T06:30:00+00:00 [queued]>
+[2025-04-18T06:47:13.533+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-18T06:47:13.542+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): upload_processed_images> on 2025-04-18 06:30:00+00:00
+[2025-04-18T06:47:13.549+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'image_processing_pipeline', 'upload_processed_images', 'scheduled__2025-04-18T06:30:00+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/image_processing_dag.py', '--cfg-path', '/tmp/tmp0p69g0u6']
+[2025-04-18T06:47:13.550+0000] {standard_task_runner.py:105} INFO - Job 45: Subtask upload_processed_images
+[2025-04-18T06:47:13.551+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=299) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-18T06:47:13.551+0000] {standard_task_runner.py:72} INFO - Started process 300 to run task
+[2025-04-18T06:47:13.576+0000] {task_command.py:467} INFO - Running <TaskInstance: image_processing_pipeline.upload_processed_images scheduled__2025-04-18T06:30:00+00:00 [running]> on host 96ec7c07bc54
+[2025-04-18T06:47:13.629+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='image_processing_pipeline' AIRFLOW_CTX_TASK_ID='upload_processed_images' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T06:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-18T06:30:00+00:00'
+[2025-04-18T06:47:13.630+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-18T06:47:13.646+0000] {s3_operations.py:30} INFO - Uploading /tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg to processed-images-***/processed/Dario-Nessi_Sir-no-photos-please-copy.jpg
+[2025-04-18T06:47:13.755+0000] {base.py:84} INFO - Retrieving connection 'aws_default'
+[2025-04-18T06:47:14.162+0000] {s3_operations.py:33} INFO - Successfully uploaded file to processed-images-***/processed/Dario-Nessi_Sir-no-photos-please-copy.jpg
+[2025-04-18T06:47:14.164+0000] {image_processing_dag.py:162} INFO - Removed temporary file: /tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg
+[2025-04-18T06:47:14.164+0000] {python.py:240} INFO - Done. Returned value was: [{'original_key': 'Dario-Nessi_Sir-no-photos-please-copy.jpg', 'processed_key': 'processed/Dario-Nessi_Sir-no-photos-please-copy.jpg', 'local_path': '/tmp/***_image_processing/Dario-Nessi_Sir-no-photos-please-copy.jpg', 's3_url': 's3://processed-images-***/processed/Dario-Nessi_Sir-no-photos-please-copy.jpg'}]
+[2025-04-18T06:47:14.190+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-18T06:47:14.190+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=image_processing_pipeline, task_id=upload_processed_images, run_id=scheduled__2025-04-18T06:30:00+00:00, execution_date=20250418T063000, start_date=20250418T064713, end_date=20250418T064714
+[2025-04-18T06:47:14.246+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T06:47:14.262+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T06:47:14.263+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
