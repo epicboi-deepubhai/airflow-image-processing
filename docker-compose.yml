@@ -53,7 +53,7 @@ services:
     user: "${AIRFLOW_UID:-50000}:0"
 
   airflow-scheduler:
-    image: apache/airflow:2.10.5-python3.12  # Updated to use Python 3.10
+    image: apache/airflow:2.10.5-python3.12  
     depends_on:
       - postgres
     environment:
